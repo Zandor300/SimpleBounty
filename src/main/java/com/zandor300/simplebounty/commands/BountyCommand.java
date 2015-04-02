@@ -4,6 +4,7 @@ import com.zandor300.simplebounty.SimpleBounty;
 import com.zandor300.zsutilities.commandsystem.Command;
 import com.zandor300.zsutilities.utilities.uuid.NameFetcher;
 import com.zandor300.zsutilities.utilities.uuid.UUIDFetcher;
+import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 
 import java.util.Arrays;
@@ -31,6 +32,11 @@ public class BountyCommand extends Command {
 			}
 			return;
 		} else if (args.length == 2) {
+			if (sender.getName().equalsIgnoreCase(args[0])) {
+				SimpleBounty.getChat().sendMessage(sender, ChatColor.RED + "You can't put a bounty on yourself!");
+				return;
+			}
+
 			String uuid = "";
 			try {
 				uuid = new UUIDFetcher(Arrays.asList(args[0])).call().get(0).toString();
