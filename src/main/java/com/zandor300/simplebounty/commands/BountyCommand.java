@@ -22,6 +22,9 @@ public class BountyCommand extends Command {
 	@Override
 	public void execute(CommandSender sender, String[] args) {
 		if (args.length == 0) {
+			if (!sender.hasPermission("simplebounty.get"))
+				return;
+
 			int i = 0;
 			for (String uuid : SimpleBounty.getCustomConfig().getConfigurationSection("bounties").getKeys(false)) {
 				try {
@@ -32,6 +35,9 @@ public class BountyCommand extends Command {
 			}
 			return;
 		} else if (args.length == 2) {
+			if (!sender.hasPermission("simplebounty.set"))
+				return;
+
 			if (sender.getName().equalsIgnoreCase(args[0])) {
 				SimpleBounty.getChat().sendMessage(sender, ChatColor.RED + "You can't put a bounty on yourself!");
 				return;
