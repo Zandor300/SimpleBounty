@@ -25,10 +25,10 @@ public class BountyCommand extends Command {
 			if (!sender.hasPermission("simplebounty.get"))
 				return;
 
-			int i = 0;
+			int i = 1;
 			for (String uuid : SimpleBounty.getCustomConfig().getConfigurationSection("bounties").getKeys(false)) {
 				try {
-					SimpleBounty.getChat().sendMessage(sender, i + ". Wanted " + new NameFetcher(Arrays.asList(UUID.fromString(uuid))).call().toString() + " for $" + SimpleBounty.getCustomConfig().getInt("bounties." + uuid + ".reward"));
+					SimpleBounty.getChat().sendMessage(sender, i + ". Wanted " + new NameFetcher(Arrays.asList(UUID.fromString(uuid))).call().get(0).toString() + " for $" + SimpleBounty.getCustomConfig().getInt("bounties." + uuid + ".reward"));
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
