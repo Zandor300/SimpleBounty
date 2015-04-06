@@ -57,6 +57,7 @@ public class BountyCommand extends Command {
 				SimpleBounty.getChat().sendMessage(sender, "Invalid reward.");
 			}
 			SimpleBounty.getCustomConfig().set("bounties." + uuid + ".reward", reward);
+			SimpleBounty.getChat().broadcastMessage("A $" + reward + " bounty has been placed on " + args[0] + ".");
 			return;
 		} else {
 			sendUsageMessage(sender);
