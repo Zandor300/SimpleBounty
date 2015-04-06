@@ -1,5 +1,5 @@
 name: SimpleBounty
-main: com.zandor300.simplebounty
+main: com.zandor300.simplebounty.SimpleBounty
 version: 1.0.0
 author: Zandor300
 depend: [ZSUtilities,Vault]
