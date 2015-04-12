@@ -48,6 +48,7 @@ public class BountyCommand extends Command {
 				uuid = new UUIDFetcher(Arrays.asList(args[0])).call().get(0).toString();
 			} catch (Exception e) {
 				SimpleBounty.getChat().sendMessage(sender, "Unable to fetch the uuid of this player.");
+				return;
 			}
 
 			int reward = 0;
