@@ -1,10 +1,5 @@
 pipeline {
-  agent {
-    docker {
-      image 'tomcat:8-jre8'
-    }
-    
-  }
+  agent any
   stages {
     stage('package') {
       steps {
