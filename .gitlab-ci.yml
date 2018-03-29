@@ -1,0 +1,15 @@
+before_script:
+  - mvn clean
+
+stages:
+  - build
+
+build:
+  stage: build
+  script:
+    - mvn package
+  tags:
+    - maven
+  artifacts:
+    paths:
+    - target/*.jar
